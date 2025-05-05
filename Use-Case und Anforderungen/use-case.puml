@@ -1,0 +1,53 @@
+@startuml
+actor Bob #blue
+actor Alice #pink
+
+title Spielablauf Feuerwehr Spiel
+
+(Spiel starten)
+
+rectangle "Spiel Menü" {
+(Zur Level Auswahl)
+}
+
+rectangle "Level Menü" {
+(Level auswählen)
+(Level starten)
+}
+
+rectangle "Einstellungen" {
+(Einstellungen öffnen)
+(Linkshändermodus aktivieren)
+(Einstellungen schließen)
+}
+
+rectangle "Im Level" {
+(Werkzeug nehmen)
+(Tür öffnen)
+(Level beenden)
+}
+
+'Ablauf von Bob'
+Bob -[#blue]-> (Spiel starten)
+(Spiel starten) -[#blue]-> (Zur Level Auswahl)
+(Zur Level Auswahl) -[#blue]-> (Level auswählen)
+(Level auswählen) -[#blue]-> (Level starten)
+(Level starten) -[#blue]-> (Werkzeug nehmen)
+(Werkzeug nehmen) -[#blue]-> (Tür öffnen)
+(Tür öffnen) -[#blue]-> (Level beenden)
+(Level beenden) -[#blue]-> (Level auswählen)
+
+'Ablauf von Alice'
+Alice -[#pink]-> (Spiel starten)
+(Spiel starten) -[#pink]-> (Einstellungen öffnen)
+(Einstellungen öffnen) -[#pink]-> (Linkshändermodus aktivieren)
+(Linkshändermodus aktivieren) -[#pink]-> (Einstellungen schließen)
+(Einstellungen schließen) -[#pink]-> (Zur Level Auswahl)
+(Zur Level Auswahl) -[#pink]-> (Level auswählen)
+(Level auswählen) -[#pink]-> (Level starten)
+(Level starten) -[#pink]-> (Werkzeug nehmen)
+(Werkzeug nehmen) -[#pink]-> (Tür öffnen)
+(Tür öffnen) -[#pink]-> (Level beenden)
+(Level beenden) -[#pink]-> (Level auswählen)
+
+@enduml
